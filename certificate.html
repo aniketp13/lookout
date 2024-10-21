@@ -167,9 +167,15 @@
                     <p class="primary">Status:</p>
                     <p class="caption">Active</p>
                 </div>
-                <button class="primary">Go Back</button>
+                <button class="primary" onclick="handleBack()">Go Back</button>
             </div>
         </div>
     </div>
+
+    <script>
+        function handleBack() {
+            window.location.replace("/")
+        }
+    </script>
 </body>
 </html>
