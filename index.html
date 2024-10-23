@@ -56,7 +56,7 @@
         .align-center {
             align-items: center;
         }
-        a.primary {
+        button.primary {
             background-color: #7c001f;
             color: #FFFFFF;
             font-weight: 600;
@@ -76,9 +76,6 @@
             padding: 8px 20px;
             width: 100%;
             margin-top: 16px;
-            display: block;
-            text-decoration: none;
-            text-align: center;
         }
 
         .input-container input {
@@ -129,20 +126,45 @@
             </div>
             <p class="caption bold primary">Enter Student Certificate ID or Instructor Number</p>
             <div class="flex input-container">
-                <input type="text" value="3CC552AF-5424BE" disabled class="certificateId">
+                <input type="text" value="" disabled class="certificateId">
             </div>
             <!-- <label for="" class="flex">
                 <input type="checkbox" name="" id="">
                 <span>Instructor</span>
             </label> -->
-            <a href="./certificate.html" class="primary">Search</a>
+            <button class="primary" id="fetchData">Search</button>
         </form>
     </div>
 
     <script>
-        // const getId = window.location.search;
-        // const userId = getId.slice(4, );
-        // document.querySelector(".certificateId").value = userId;
+        const getId = window.location.search;
+        const userId = getId.slice(4, );
+        document.querySelector(".certificateId").value = userId;
+
+        document.getElementById('fetchData').addEventListener('click', () => {
+            const payload = { regcert_id: "3CC552AF-5424BE" };
+            fetch('https://accreditation.iadc.org/ajax.php' , {
+                method: "POST",
+                body: JSON.stringify(payload),
+            }) // Replace with your API endpoint
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Handle the data from the API
+                    console.log(data);
+                    document.getElementById('result').innerText = JSON.stringify(data, null, 2);
+                })
+                .catch(error => {
+                    // Handle errors
+                    console.log(error);
+                    document.getElementById('result').innerText = 'Error: ' + error.message;
+                });
+        });
+
     </script>
 </body>
 </html>
