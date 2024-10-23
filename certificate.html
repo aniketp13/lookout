@@ -3,51 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificate</title>
+    <title>IADC Management</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
 
     <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            font-family: "Roboto Condensed", sans-serif;
-        }
-        .page {
-            display: flex;
-            width: 100vw;
-            height: 100vh;
-            align-items: center;
-            justify-content: center;
-        }
-        .form-container {
-            max-width: 350px;
-            padding: 40px 40px;
-            border: 1px solid #f7f7f7;
-        }
-        .flex {
-            display: flex;
-            gap: 10px;
-        }
-        .direction-column {
-            flex-direction: column;
-        }
-        .logo-container {
-            margin-bottom: 16px;
-        }
-        .logo-container .logo {
-            max-width: 28px;
-            width: 100%;
-            height: 28px;
-        }
-        .logo-container .logo svg {
-            width: 100%;
-            height: 100%;
-            max-width: 28px;
-        }
         p.primary {
             /* color: #7c001f; */
             font-size: 14px;
@@ -68,7 +31,7 @@
         .justify-center {
             justify-content: center;
         }
-        button.primary {
+        a.primary {
             background-color: #7c001f;
             color: #FFFFFF;
             font-weight: 600;
@@ -88,6 +51,9 @@
             padding: 8px 20px;
             width: 100%;
             margin-top: 16px;
+            display: block;
+            text-decoration: none;
+            text-align: center;
         }
 
         .input-container input {
@@ -116,60 +82,44 @@
             <div class="flex align-center justify-center">
                 <div class="logo-container flex align-center">
                     <div class="logo">
-                        <svg width="109" height="105" viewBox="0 0 109 105" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M58.7608 49.51L77.915 39.294L100.631 25.4292L82.1802 13.4472L58.7608 49.51Z" fill="#CF2030"/>
-                            <path d="M83.2795 35.6235L93.8832 29.3937L100.631 25.4292L103.55 37.4597L83.2795 35.6235Z" fill="#AB1E2E"/>
-                            <path d="M53.2115 54.0234L38.1517 69.6584L20.8319 89.8642L42.0823 95.5582L53.2115 54.0234Z" fill="#CF2030"/>
-                            <path d="M34.184 74.8069L26.0244 84.0086L20.8319 89.8642L14.3386 79.3244L34.184 74.8069Z" fill="#AB1E2E"/>
-                            <path d="M58.7064 66.2493L57.3461 97.9319L70.2124 95.9897L58.7064 66.2493Z" fill="#CF2030"/>
-                            <path d="M58.0541 85.238L57.8506 95.006L57.3461 97.9319L50.5 97L58.0541 85.238Z" fill="#AB1E2E"/>
-                            <path d="M71.5205 50.5182L101.771 60.0322L103.225 47.1017L71.5205 50.5182Z" fill="#CF2030"/>
-                            <path d="M89.6933 56.0628L99.0758 58.7876L101.771 60.0322L99.0994 66.4038L89.6933 56.0628Z" fill="#AB1E2E"/>
-                            <path d="M53.8929 39.9047L59.7332 8.60146L42.3308 12.3263L53.8929 39.9047Z" fill="#CF2030"/>
-                            <path d="M56.0657 26.5433L59.1899 11.4381L59.7332 8.60146L68.6118 10.3821L56.0657 26.5433Z" fill="#AB1E2E"/>
-                            <path d="M40.3811 54.5799L8.56968 53.1529L14.6802 69.8676L40.3811 54.5799Z" fill="#CF2030"/>
-                            <path d="M26.8473 54.2878L11.4543 53.2961L8.56967 53.153L9.09729 44.1129L26.8473 54.2878Z" fill="#AB1E2E"/>
-                            <path d="M57.6128 54L71.2959 70.853L89.2404 90.5061L97.4817 70.1081L57.6128 54Z" fill="#CF2030"/>
-                            <path d="M75.9225 75.4186L84.0612 84.6387L89.2403 90.5061L77.9878 95.6666L75.9225 75.4186Z" fill="#AB1E2E"/>
-                            <path d="M51.0885 51.0736L22.1831 18.3883L12.1173 32.901L51.0885 51.0736Z" fill="#CF2030"/>
-                            <path d="M35.1926 33.33L22.1831 18.3883L32.651 14.461L35.1926 33.33Z" fill="#AB1E2E"/>
-                        </svg>
+                        <img src="./LogoText.png" alt="">
                     </div>
-                    <p class="logo-text">IADC</p>
                 </div>
             </div>
             <div class="flex direction-column">
-                <div class="flex">
+                <div class="flex border-bottom">
                     <p class="primary">Certificate ID:</p>
-                    <p class="caption">3CC552AF-5424BE</p>
-                </div>
-                <div class="flex">
+                    <p id="certificateId" class="caption"></p>
+                </div>  
+                <div class="flex border-bottom">
                     <p class="primary">Name:</p>
-                    <p class="caption">SHIVDHANI YADAV</p>
+                    <p id="name" class="caption"></p>
                 </div>
-                <div class="flex">
+                <div class="flex border-bottom">
                     <p class="primary">Completed On:</p>
-                    <p class="caption">21 October 2024</p>
+                    <p id="completedOn" class="caption"></p>
                 </div>
-                <div class="flex">
+                <div class="flex border-bottom">
                     <p class="primary">Expires On:</p>
-                    <p class="caption">21 October 2026</p>
+                    <p id="expireOn" class="caption"></p>
                 </div>
-                <div class="flex">
+                <div class="flex border-bottom">
                     <p class="primary">Program:</p>
-                    <p class="caption">Drilling Operations, Supervisor, Surface</p>
+                    <p id="program" class="caption"></p>
                 </div>
-                <div class="flex">
+                <div class="flex border-bottom">
                     <p class="primary">Provider:</p>
-                    <p class="caption">Dolphin Human Resources Consultancy LLC</p>
+                    <p id="provider" class="caption"></p>
                 </div>
-                <div class="flex">
+                <div class="flex border-bottom">
                     <p class="primary">Status:</p>
-                    <p class="caption">Active</p>
+                    <p id="status" class="caption"></p>
                 </div>
-                <button class="primary">Go Back</button>
+                <a class="primary back-button" id="backButton" href="./index.html">Go Back</a>
             </div>
         </div>
     </div>
+
+    <script src="./script1.js"></script>
 </body>
 </html>

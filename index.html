@@ -7,46 +7,18 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="./style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
+    <title>IADC Management</title>
     <style>
         * {
             padding: 0;
             margin: 0;
-            /* box-sizing: border-box; */
+            box-sizing: border-box;
             font-family: "Roboto Condensed", sans-serif;
         }
         .page {
-            display: flex;
-            width: 100vw;
-            height: 100vh;
-            align-items: center;
-            justify-content: center;
-        }
-        .form-container {
-            max-width: 350px;
-            padding: 40px 40px;
-            border: 1px solid #f7f7f7;
-        }
-        .flex {
-            display: flex;
-            gap: 10px;
-        }
-        .direction-column {
-            flex-direction: column;
-        }
-        .logo-container {
-            margin-bottom: 16px;
-        }
-        .logo-container .logo {
-            max-width: 28px;
-            width: 100%;
-            height: 28px;
-        }
-        .logo-container .logo svg {
-            width: 100%;
-            height: 100%;
-            max-width: 28px;
+            
         }
         p.primary {
             color: #7c001f;
@@ -56,7 +28,7 @@
         .align-center {
             align-items: center;
         }
-        button.primary {
+        a.primary {
             background-color: #7c001f;
             color: #FFFFFF;
             font-weight: 600;
@@ -76,6 +48,9 @@
             padding: 8px 20px;
             width: 100%;
             margin-top: 16px;
+            display: block;
+            text-decoration: none;
+            text-align: center;
         }
 
         .input-container input {
@@ -103,68 +78,21 @@
         <div class="form-container">
             <div class="logo-container flex align-center">
                 <div class="logo">
-                    <svg width="109" height="105" viewBox="0 0 109 105" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M58.7608 49.51L77.915 39.294L100.631 25.4292L82.1802 13.4472L58.7608 49.51Z" fill="#CF2030"/>
-                        <path d="M83.2795 35.6235L93.8832 29.3937L100.631 25.4292L103.55 37.4597L83.2795 35.6235Z" fill="#AB1E2E"/>
-                        <path d="M53.2115 54.0234L38.1517 69.6584L20.8319 89.8642L42.0823 95.5582L53.2115 54.0234Z" fill="#CF2030"/>
-                        <path d="M34.184 74.8069L26.0244 84.0086L20.8319 89.8642L14.3386 79.3244L34.184 74.8069Z" fill="#AB1E2E"/>
-                        <path d="M58.7064 66.2493L57.3461 97.9319L70.2124 95.9897L58.7064 66.2493Z" fill="#CF2030"/>
-                        <path d="M58.0541 85.238L57.8506 95.006L57.3461 97.9319L50.5 97L58.0541 85.238Z" fill="#AB1E2E"/>
-                        <path d="M71.5205 50.5182L101.771 60.0322L103.225 47.1017L71.5205 50.5182Z" fill="#CF2030"/>
-                        <path d="M89.6933 56.0628L99.0758 58.7876L101.771 60.0322L99.0994 66.4038L89.6933 56.0628Z" fill="#AB1E2E"/>
-                        <path d="M53.8929 39.9047L59.7332 8.60146L42.3308 12.3263L53.8929 39.9047Z" fill="#CF2030"/>
-                        <path d="M56.0657 26.5433L59.1899 11.4381L59.7332 8.60146L68.6118 10.3821L56.0657 26.5433Z" fill="#AB1E2E"/>
-                        <path d="M40.3811 54.5799L8.56968 53.1529L14.6802 69.8676L40.3811 54.5799Z" fill="#CF2030"/>
-                        <path d="M26.8473 54.2878L11.4543 53.2961L8.56967 53.153L9.09729 44.1129L26.8473 54.2878Z" fill="#AB1E2E"/>
-                        <path d="M57.6128 54L71.2959 70.853L89.2404 90.5061L97.4817 70.1081L57.6128 54Z" fill="#CF2030"/>
-                        <path d="M75.9225 75.4186L84.0612 84.6387L89.2403 90.5061L77.9878 95.6666L75.9225 75.4186Z" fill="#AB1E2E"/>
-                        <path d="M51.0885 51.0736L22.1831 18.3883L12.1173 32.901L51.0885 51.0736Z" fill="#CF2030"/>
-                        <path d="M35.1926 33.33L22.1831 18.3883L32.651 14.461L35.1926 33.33Z" fill="#AB1E2E"/>
-                    </svg>
+                    <img src="./LogoText.png" alt="">
                 </div>
-                <p class="logo-text">IADC</p>
             </div>
             <p class="caption bold primary">Enter Student Certificate ID or Instructor Number</p>
             <div class="flex input-container">
-                <input type="text" value="" disabled class="certificateId">
+                <input type="text" value="" class="certificateId" id="certificateId">
             </div>
             <!-- <label for="" class="flex">
                 <input type="checkbox" name="" id="">
                 <span>Instructor</span>
             </label> -->
-            <button class="primary" id="fetchData">Search</button>
+            <a href="" class="primary" id="searchButton">Search</a>
         </form>
     </div>
 
-    <script>
-        const getId = window.location.search;
-        const userId = getId.slice(4, );
-        document.querySelector(".certificateId").value = userId;
-
-        document.getElementById('fetchData').addEventListener('click', () => {
-            const payload = { regcert_id: "3CC552AF-5424BE" };
-            fetch('https://accreditation.iadc.org/ajax.php' , {
-                method: "POST",
-                body: JSON.stringify(payload),
-            }) // Replace with your API endpoint
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok ' + response.statusText);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    // Handle the data from the API
-                    console.log(data);
-                    document.getElementById('result').innerText = JSON.stringify(data, null, 2);
-                })
-                .catch(error => {
-                    // Handle errors
-                    console.log(error);
-                    document.getElementById('result').innerText = 'Error: ' + error.message;
-                });
-        });
-
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
