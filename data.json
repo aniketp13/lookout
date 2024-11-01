@@ -82,5 +82,29 @@
             "provider": "Crew Petro Pvrivate Limited",
             "status": "Active"
         }
+    },
+    {
+        "id": "79024E72-5710F0",
+        "value": {
+            "name": "PRAVIN HARANE",
+            "certificateId": "79024E72-5710F0",
+            "completedOn": "20th Oct 2024",
+            "expireOn": "20th Oct 2026",
+            "program": "Drilling Operations, Supervisor, Surface",
+            "provider": "Dolphin Human Resources Consultancy LLC",
+            "status": "Active"
+        }
+    },
+    {
+        "id": "80024E73-2010F0",
+        "value": {
+            "name": "PANKAJ MAHERIYA",
+            "certificateId": "80024E73-2010F0",
+            "completedOn": "20th Oct 2024",
+            "expireOn": "20th Oct 2026",
+            "program": "Drilling Operations, Supervisor, Surface",
+            "provider": "Dolphin Human Resources Consultancy LLC",
+            "status": "Active"
+        }
     }
 ]
